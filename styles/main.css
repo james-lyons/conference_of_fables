@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/league map cartoon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
+
+h1 {
+    text-align: right;
+    font-size: 3rem;
+    padding: 20px 40px;
+}
+
+#computer {
+    margin: 10px;
+    visibility: hidden;
+}
+
+#arena {
+    margin: 10px;
+    visibility: hidden;
+}
+
+#player {
+    margin: 10px;
+    visibility: hidden;
+}
+
+#Start {
+    margin-left: 45%;
+    margin-top: 35%;
+    width: 200px;
+    height: 100px;   
+    color: black;  
+    background-color: red; 
+    font-size:30px;
+    font-weight:700;
+}
+
+#Deal-cards {
+    margin-left: 45%;
+    margin-top: 26%;
+    width: 200px;
+    height: 100px;   
+    color: black;  
+    background-color: lightblue; 
+    display: none;
+    font-size:30px;
+    font-weight:700;
+}
