@@ -11,10 +11,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
 }
 
 main {
-    display: grid;
+    display: flex;
+    height: 100vh;
 }
 
 h1 {
@@ -25,10 +29,12 @@ h1 {
 
 #computer {
     margin: 10px;
+    display: block;
 }
 
 #arena {
     margin: 10px;
+    flex
 }
 
 #player {
@@ -36,10 +42,11 @@ h1 {
 }
 
 #Start {
-    margin-left: 45%;
-    margin-top: 35%;
-    width: 200px;
+    position: relative;
+    top: 350px;
+    left: 740px;
     height: 100px;   
+    width: 200px;
     color: black;  
     background-color: red; 
     font-size:30px;
@@ -47,10 +54,11 @@ h1 {
 }
 
 #Deal-cards {
-    margin-left: 45%;
-    margin-top: 26%;
-    width: 200px;
+    position: relative;
+    top: 450px;
+    left: 740px;
     height: 100px;   
+    width: 200px;
     color: black;  
     background-color: lightblue; 
     display: none;
@@ -59,7 +67,6 @@ h1 {
 }
 
 .card-backs {
-    width: 10%;
-    height: %;
+    width: 30%;
     display: none;
 }
