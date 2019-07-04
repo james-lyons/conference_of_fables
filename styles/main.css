@@ -13,6 +13,9 @@ body {
     min-height: 100%;
 }
 
+main {
+    display: grid;
+}
 
 h1 {
     text-align: right;
@@ -22,17 +25,14 @@ h1 {
 
 #computer {
     margin: 10px;
-    visibility: hidden;
 }
 
 #arena {
     margin: 10px;
-    visibility: hidden;
 }
 
 #player {
     margin: 10px;
-    visibility: hidden;
 }
 
 #Start {
@@ -56,4 +56,10 @@ h1 {
     display: none;
     font-size:30px;
     font-weight:700;
+}
+
+.card-backs {
+    width: 10%;
+    height: %;
+    display: none;
 }

@@ -57,11 +57,6 @@ const pcHand = [];
 
 // ----------------------------  state variables  ----------------------------- //
 // --------------------------  cached dom elements  --------------------------- //
-
-
-
-
-
 // -------------------------------  functions  -------------------------------- //
 
 const changeScreen = () => {
@@ -71,57 +66,38 @@ const changeScreen = () => {
     $('#Deal-cards').show();
 };
 
-
-// class Card {
-//     constructor(name, hp, dmg) {
-//         this.name = name;
-//         this.hp = hp;
-//         this.dmg = dmg;
-//     }
-// }
-
-
 shuffleDeck = (cards) => {
     for (let i = cards.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [cards[i], cards[j]] = [cards[j], cards[i]];
     };
-}
+};
+
 dealCards = (cards) => {
     for (let i = 0; i < 5; i++) {
         playerHand.push(cards.pop());
         pcHand.push(cards.pop());
 };
-}
+};
 
-
-const dealDeck = () => {
+const dealPlayerDeck = (playerHand) => {
     for (let i = 0; i < playerHand.length; i++) {
         $('#player-cards').append(playerHand[i]);
         console.log(playerHand[i]);
-        console.log(pcHand[i]);
-    }
-}
+        // console.log(pcHand[i]);
+    };
+};
 
 const $dealPlayerCards = function(playerHand) {
     return `
-    <div class="col-md-2>
-    <h2>${playerHand[1].name}</h2>
-    <h2>${playerHand[1].hp}</h2>
-    <h2>${playerHand[1].dmg}</h2>
+    <div class="col-md-4">
+        <h2>${playerHand[0].name}</h2>
+        <h2>${playerHand[0].hp}</h2>
+        <h2>${playerHand[0].dmg}</h2>
     </div>
     `;
-}
+};
 
-// function getTodoTemplate(todo) {
-//     return `
-//     <div class="col-md-3 offset-md-1 p-4 mb-4 bg-dark text-light animated fadeIn">
-//         <button data-todoid=${todo.id} class="btn btn-sm btn-danger delete-todo float-right">&times;</button>
-//         <h4>${todo.title}</h4>
-//         <p>${todo.task}</p>
-//     </div>
-//     `;
-// };
 
 // ----------------------------  event listeners  ----------------------------- //
 
@@ -135,12 +111,12 @@ const $DealCards = $('#Deal-cards').on('click', function(event) {
     $('#Deal-cards').hide();
     shuffleDeck(cards);
     dealCards(cards);
-    dealDeck();
-    $dealPlayerCards();
-})
+    dealPlayerDeck(playerHand);
+    $dealPlayerCards(playerHand);
+    $('.card-backs').show();
+});
 
 // const $cardHand = $()
-
 
 
 
