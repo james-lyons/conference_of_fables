@@ -17,8 +17,14 @@ body {
 }
 
 main {
-    display: flex;
     height: 100vh;
+    width: 100%;
+}
+
+.main {
+    display: grid;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
@@ -26,20 +32,33 @@ h1 {
     font-size: 3rem;
     padding: 20px 40px;
 }
+.container {
+    min-width: 100%;
+    min-height: 100px;
+    text-align: center;
+}
 
 #computer {
     margin: 10px;
-    display: block;
+    grid-template-rows: 30%;
 }
 
 #arena {
     margin: 10px;
-    flex
+    text-align: center;
+    align-items: center;
+    grid-template-rows: 30%;
 }
 
 #player {
     margin: 10px;
+    text-align: right;
+    grid-template-rows: 30%;
 }
+
+/* .player-cards {
+
+} */
 
 #Start {
     position: relative;
@@ -67,6 +86,16 @@ h1 {
 }
 
 .card-backs {
-    width: 30%;
+    width: 8%;
     display: none;
+    margin: 0 0 0 70px;
+}
+
+.pc-card-backs {
+    width: 100%;
+}
+
+.card-faces {
+    max-width: 150px;
+    max-height: 200px;
 }

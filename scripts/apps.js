@@ -1,59 +1,64 @@
 // -------------------------------  constants  -------------------------------- //
 
+const cardBack = ('/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/card back.jpg')
+const $playerCards = $('.player-cards');
+const $pcCards = $('.pc-cards');
+const $battleArena = $('.battleArena')
 const cards = [
     {
-    name: "Jengar",
+    name: "Rengar",
     HP: 50,
     DMG: 70,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/rengar.png",
 },{
-    name: "Jed",
+    name: "Zed",
     HP: 45,
     DMG: 65,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/zeddd.png",
 },{
-    name: "Ralphite",
+    name: "Malphite",
     HP: 100,
     DMG: 30,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/malphite.png",
 },{
     name: "Leona",
     HP: 95,
     DMG: 35,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/Leona.jpg",
 },{
-    name: "Ben",
+    name: "Shen",
     HP: 80,
     DMG: 40,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/shen.jpg",
 },{
-    name: "Darees",
+    name: "Darius",
     HP: 75,
     DMG: 45,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/darius.jpg",
 },{
-    name: "Yorki",
+    name: "Corki",
     HP: 40,
     DMG: 55,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/corki.jpg",
 },{
-    name: "Dray-ben",
+    name: "Draven",
     HP: 35,
     DMG: 60,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/Draven.png",
 },{
-    name: "Zonya",
+    name: "Sona",
     HP: 30,
     DMG: 59,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/sona.jpg",
 },{
-    name: "NamYeet",
+    name: "Nami",
     HP: 25,
     DMG: 30,
-    imgsrc: 1,
+    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/nami.jpg",
 }];
 const playerHand = [];
 const pcHand = [];
+// let pcCard = $('pc-cards.last-child')
 
 // ----------------------------  state variables  ----------------------------- //
 // --------------------------  cached dom elements  --------------------------- //
@@ -66,37 +71,88 @@ const changeScreen = () => {
     $('#Deal-cards').show();
 };
 
-shuffleDeck = (cards) => {
+// --------------------- creates unique decks ---------------------//
+
+function shuffleDeck(cards) {
     for (let i = cards.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [cards[i], cards[j]] = [cards[j], cards[i]];
     };
 };
 
-dealCards = (cards) => {
+function dealCards(cards) {
     for (let i = 0; i < 5; i++) {
         playerHand.push(cards.pop());
         pcHand.push(cards.pop());
 };
 };
 
-const dealPlayerDeck = (playerHand) => {
-    for (let i = 0; i < playerHand.length; i++) {
-        $('#player-cards').append(playerHand[i]);
-        console.log(playerHand[i]);
-        // console.log(pcHand[i]);
-    };
+
+// --------------------- deals and renders unique decks ---------------------//
+
+// --- Player Cards --- //
+function $dealPlayerCards() {
+    renderPlayerCards(playerHand, $playerCards);
+}
+
+function $dealPlayerCardDivs(playerCard) {
+    playerCard.forEach(playerHand => {
+        const col2 = `
+        <div class="col-md-1 offset-sm-1 p-4 mb-4 bg-dark text-light animated fadeIn">
+            <h2>${playerHand.name}</h2>
+            <h2>${playerHand.HP}</h2>
+            <h2>${playerHand.DMG}</h2>
+            <img class="card-faces" src="${playerHand.imgsrc}"/>
+        </div>
+        `;
+        $playerCards.append(col2);
+    });
 };
 
-const $dealPlayerCards = function(playerHand) {
-    return `
-    <div class="col-md-4">
-        <h2>${playerHand[0].name}</h2>
-        <h2>${playerHand[0].hp}</h2>
-        <h2>${playerHand[0].dmg}</h2>
-    </div>
-    `;
+function renderPlayerCards(dataObj, domElement) {
+    const template = $dealPlayerCardDivs(dataObj);
+    domElement.append(template);
+    console.log(playerHand);
 };
+
+
+// --- Computer Cards --- //
+
+function $dealPcCards() {
+    renderPcCards(pcHand, $pcCards);
+}
+
+function $dealPcCardDivs(pcCard) {
+    pcCard.forEach(pcHand => {
+        const col2 = `
+        <div class="col-md-1 offset-sm-1 p-4 mb-4 bg-dark text-light animated fadeIn">
+            <h2>${pcHand.name}</h2>
+            <h2>${pcHand.HP}</h2>
+            <h2>${pcHand.DMG}</h2>
+            // <img class="pc-card-backs" src="/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/card back.jpg"/>
+        </div>
+        `;
+        $pcCards.append(col2);
+    });
+};
+
+function renderPcCards(dataObj, domElement) {
+    const template = $dealPcCardDivs(dataObj);
+    domElement.append(template);
+    console.log(pcHand);
+};
+
+
+// --- Game Logic --- //
+
+function pickACard() {
+    $battleArena.append(event.target);
+};
+
+// function battleTime() {
+//     if ()
+// };
+
 
 
 // ----------------------------  event listeners  ----------------------------- //
@@ -107,22 +163,23 @@ const $start = $('#Start').on('click', function(event) {
     }
 });
 
-const $DealCards = $('#Deal-cards').on('click', function(event) {
+const $dealCards = $('#Deal-cards').on('click', function() {
     $('#Deal-cards').hide();
     shuffleDeck(cards);
     dealCards(cards);
-    dealPlayerDeck(playerHand);
-    $dealPlayerCards(playerHand);
+    $dealPlayerCards();
+    $dealPcCards();
     $('.card-backs').show();
 });
 
-// const $cardHand = $()
+const $clickPlayerCard = $('#player').on('click', function() {
+    if (event.target.tagName === 'DIV') {
+    pickACard();
+    };
+});
 
-
-
-//    battle = () => {
-//     for (let i = 0; i < 3; i++) {
-//      const randomizer = Math.floor(Math.random() * human.hand.length);
-     
-//      let inPlayHuman = human.hand.splice(randomizer, 1)[0];
-//      let inPlayComp = comp.hand.splice(randomizer, 1)[0];
+const $clickPCCard = $('#computer').on('click', function() {
+    if (event.target.tagName === 'DIV') {
+    pickACard();
+    };
+});
