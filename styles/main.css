@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-image: url("pictures/league map cartoon.png");
+    background-image: url("./pictures/league map cartoon.png");
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100%;
