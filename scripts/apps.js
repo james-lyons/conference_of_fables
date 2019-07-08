@@ -48,6 +48,8 @@ const cards = [
 }];
 const playerHand = [];
 const pcHand = [];
+let playerScore = 0;
+let pcScore = 0;
 
 // ----------------------------  state variables  ----------------------------- //
 // --------------------------  cached dom elements  --------------------------- //
@@ -137,12 +139,22 @@ function pickACard() {
 function battleTime(playerHand, pcHand) {
     for (let i = 0; i < playerHand.length; i++) {
         if (playerHand[i].DMG > pcHand[i].DMG) {
-            alert('you win!')
+            alert('you win this round')
+            playerScore += 1;
         } else if (playerHand[i].DMG < pcHand[i].DMG) {
-            alert('you lose!');
+            alert(`you lose this round`);
+            pcScore += 1;
         } else {
             alert(`It's a tie`)
         };
+    };
+    $('#score-board').text(`Score: ${playerScore} - ${pcScore}`);
+    if (playerScore > pcScore) {
+        alert('You win the game!')
+    } else if (playerScore < pcScore) {
+        alert(`Sorry, you lost the game =(`)
+    } else {
+        alert(`Looks like this was a tie game.`)
     };
 };
 
@@ -174,11 +186,11 @@ const $clickPlayerCard = $('#player').on('click', function() {
 
 const $clickPCCard = $('#computer').on('click', function() {
     if (event.target.tagName === 'DIV') {
-    console.log(event.target)
     pickACard();
     };
 });
 
 const $clickBattleTime = $('#Battle-time').on('click', function () {
+    $('#score-board').show();
     battleTime(playerHand, pcHand);
 });
