@@ -85,6 +85,24 @@ h1 {
     font-weight:700;
 }
 
+#Battle-time {
+    position: relative;
+    top: 450px;
+    left: 740px;
+    height: 100px;   
+    width: 200px;
+    color: black;  
+    background-color: yellow; 
+    display: none;
+    font-size:30px;
+    font-weight:700;
+}
+
+.col-md-1 {
+    max-width: 150px;
+    max-height: 300px;
+}
+
 .card-backs {
     width: 8%;
     display: none;

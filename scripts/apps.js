@@ -7,58 +7,47 @@ const $battleArena = $('.battleArena')
 const cards = [
     {
     name: "Rengar",
-    HP: 50,
     DMG: 70,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/rengar.png",
 },{
     name: "Zed",
-    HP: 45,
     DMG: 65,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/zeddd.png",
 },{
     name: "Malphite",
-    HP: 100,
     DMG: 30,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/malphite.png",
 },{
     name: "Leona",
-    HP: 95,
-    DMG: 35,
+    DMG: 30,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/Leona.jpg",
 },{
     name: "Shen",
-    HP: 80,
-    DMG: 40,
+    DMG: 45,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/shen.jpg",
 },{
     name: "Darius",
-    HP: 75,
-    DMG: 45,
+    DMG: 50,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/darius.jpg",
 },{
     name: "Corki",
-    HP: 40,
-    DMG: 55,
+    DMG: 60,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/corki.jpg",
 },{
     name: "Draven",
-    HP: 35,
-    DMG: 60,
+    DMG: 65,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/Draven.png",
 },{
     name: "Sona",
-    HP: 30,
-    DMG: 59,
+    DMG: 45,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/sona.jpg",
 },{
     name: "Nami",
-    HP: 25,
     DMG: 30,
     imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/nami.jpg",
 }];
 const playerHand = [];
 const pcHand = [];
-// let pcCard = $('pc-cards.last-child')
 
 // ----------------------------  state variables  ----------------------------- //
 // --------------------------  cached dom elements  --------------------------- //
@@ -100,7 +89,6 @@ function $dealPlayerCardDivs(playerCard) {
         const col2 = `
         <div class="col-md-1 offset-sm-1 p-4 mb-4 bg-dark text-light animated fadeIn">
             <h2>${playerHand.name}</h2>
-            <h2>${playerHand.HP}</h2>
             <h2>${playerHand.DMG}</h2>
             <img class="card-faces" src="${playerHand.imgsrc}"/>
         </div>
@@ -112,7 +100,6 @@ function $dealPlayerCardDivs(playerCard) {
 function renderPlayerCards(dataObj, domElement) {
     const template = $dealPlayerCardDivs(dataObj);
     domElement.append(template);
-    console.log(playerHand);
 };
 
 
@@ -125,11 +112,10 @@ function $dealPcCards() {
 function $dealPcCardDivs(pcCard) {
     pcCard.forEach(pcHand => {
         const col2 = `
-        <div class="col-md-1 offset-sm-1 p-4 mb-4 bg-dark text-light animated fadeIn">
+        <div class="col-md-1 offset-sm-1 p-4 mb-4 bg-dark text-light">
             <h2>${pcHand.name}</h2>
-            <h2>${pcHand.HP}</h2>
             <h2>${pcHand.DMG}</h2>
-            // <img class="pc-card-backs" src="/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/card back.jpg"/>
+            <img class="card-faces" src="${pcHand.imgsrc}"/>
         </div>
         `;
         $pcCards.append(col2);
@@ -139,7 +125,6 @@ function $dealPcCardDivs(pcCard) {
 function renderPcCards(dataObj, domElement) {
     const template = $dealPcCardDivs(dataObj);
     domElement.append(template);
-    console.log(pcHand);
 };
 
 
@@ -149,9 +134,17 @@ function pickACard() {
     $battleArena.append(event.target);
 };
 
-// function battleTime() {
-//     if ()
-// };
+function battleTime(playerHand, pcHand) {
+    for (let i = 0; i < playerHand.length; i++) {
+        if (playerHand[i].DMG > pcHand[i].DMG) {
+            alert('you win!')
+        } else if (playerHand[i].DMG < pcHand[i].DMG) {
+            alert('you lose!');
+        } else {
+            alert(`It's a tie`)
+        };
+    };
+};
 
 
 
@@ -170,6 +163,7 @@ const $dealCards = $('#Deal-cards').on('click', function() {
     $dealPlayerCards();
     $dealPcCards();
     $('.card-backs').show();
+    $('#Battle-time').show();
 });
 
 const $clickPlayerCard = $('#player').on('click', function() {
@@ -180,6 +174,11 @@ const $clickPlayerCard = $('#player').on('click', function() {
 
 const $clickPCCard = $('#computer').on('click', function() {
     if (event.target.tagName === 'DIV') {
+    console.log(event.target)
     pickACard();
     };
+});
+
+const $clickBattleTime = $('#Battle-time').on('click', function () {
+    battleTime(playerHand, pcHand);
 });
