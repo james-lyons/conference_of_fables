@@ -8,15 +8,15 @@ const cards = [
     {
     name: "Rengar",
     DMG: 70,
-    imgsrc: "./pictures/rengar.png",
+    imgsrc: "pictures/rengar.png",
 },{
     name: "Zed",
     DMG: 65,
-    imgsrc: "./pictures/zeddd.png",
+    imgsrc: "pictures/zeddd.png",
 },{
     name: "Malphite",
     DMG: 30,
-    imgsrc: "./pictures/malphite.png",
+    imgsrc: "pictures/malphite.png",
 },{
     name: "Leona",
     DMG: 30,
