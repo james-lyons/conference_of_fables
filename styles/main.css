@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-image: url("/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/league map cartoon.png");
+    background-image: url("pictures/league map cartoon.png");
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100%;
@@ -55,10 +55,6 @@ h1 {
     text-align: right;
     grid-template-rows: 30%;
 }
-
-/* .player-cards {
-
-} */
 
 #Start {
     position: relative;

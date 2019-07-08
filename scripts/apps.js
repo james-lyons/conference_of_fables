@@ -8,43 +8,43 @@ const cards = [
     {
     name: "Rengar",
     DMG: 70,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/rengar.png",
+    imgsrc: "./pictures/rengar.png",
 },{
     name: "Zed",
     DMG: 65,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/zeddd.png",
+    imgsrc: "./pictures/zeddd.png",
 },{
     name: "Malphite",
     DMG: 30,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/malphite.png",
+    imgsrc: "./pictures/malphite.png",
 },{
     name: "Leona",
     DMG: 30,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/Leona.jpg",
+    imgsrc: "pictures/Leona.jpg",
 },{
     name: "Shen",
     DMG: 45,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/shen.jpg",
+    imgsrc: "pictures/shen.jpg",
 },{
     name: "Darius",
     DMG: 50,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/darius.jpg",
+    imgsrc: "pictures/darius.jpg",
 },{
     name: "Corki",
     DMG: 60,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/corki.jpg",
+    imgsrc: "pictures/corki.jpg",
 },{
     name: "Draven",
     DMG: 65,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/Draven.png",
+    imgsrc: "pictures/Draven.png",
 },{
     name: "Sona",
     DMG: 45,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/sona.jpg",
+    imgsrc: "pictures/sona.jpg",
 },{
     name: "Nami",
     DMG: 30,
-    imgsrc: "/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/nami.jpg",
+    imgsrc: "pictures/nami.jpg",
 }];
 const playerHand = [];
 const pcHand = [];
@@ -56,7 +56,7 @@ let pcScore = 0;
 // -------------------------------  functions  -------------------------------- //
 
 const changeScreen = () => {
-    document.body.style.backgroundImage = "url('/Users/jameslyons/Desktop/GeneralAssembly/Class/projects/Conference_Of_Fables/pictures/table top.jpg')";
+    document.body.style.backgroundImage = "url('pictures/table top.jpg')";
     $('header').hide();
     $('#Start').hide();
     $('#Deal-cards').show();
