@@ -92,10 +92,11 @@ function $dealPlayerCardDivs(playerCard) {
         <div class="col-md-1 offset-sm-1 p-4 mb-4 bg-dark text-light animated fadeIn">
             <h2>${playerHand.name}</h2>
             <h2>${playerHand.DMG}</h2>
-            <img class="card-faces" src="${playerHand.imgsrc}"/>
+            // <img class="card-faces" src="${playerHand.imgsrc}"/>
         </div>
         `;
         $playerCards.append(col2);
+        $styling
     });
 };
 
